@@ -21,6 +21,19 @@ resource appSettings 'Microsoft.Web/sites/config@2022-09-01' = {
         name: 'WEBSITE_ENABLED_INSIGHT'
         value: 'falseValue'
       }
+      {
+        name: 'APPINSIGHT_INSTRUMENTATIONKEY'
+        value: appInsightsComponents.properties.InstrumentationKey
+      }
     ]
+  }
+}
+
+resource appInsightsComponents 'Microsoft.Insights/components@2020-02-02' = {
+  name: 'az-bicep-dev-ai'
+  location: location
+  kind: 'web'
+  properties: {
+    Application_Type: 'web'
   }
 }
