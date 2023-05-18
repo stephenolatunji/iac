@@ -1,0 +1,21 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Creating S3 Bucket",
+    "Resources": {
+        "s3Bucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "BucketName": {
+                    "Fn::Join": ["-",
+                        [
+                            
+                            {"Ref": "AWS::StackName"},
+                            {"Ref": "AWS::Region"}
+                        ]
+                ]
+                }
+            }
+            
+        }
+    }
+}
